@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parcel Bundler</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
+  <link rel="stylesheet" href="./scss/main.scss" />
+  <script defer src="./js/main.js"></script>
+</head>
+<body>
+  <!--
+    logo 넣는 방법(favicon) : 정적 파일 연결
+
+    1. npm i -D parcel-plugin-static-files-copy
+    2. static 폴더 생성
+    3. static 폴더에 favicon 옮기기
+    4. package.json 끝나는 부분 바로 위에 
+    ,
+    "staticFiles": {
+    "staticPath": "static"
+    }
+    작성
+
+    이유 : dist폴더는 언제든지 새롭게 생성및 삭제가 가능해야하므로 직접 넣는건 좋은 방법이 아님
+    고로 dist폴더에 자동으로 넣어줄수 있는 패키지인 parcel plugin static files copy를 이용
+   -->
+
+   <!--
+    표준 기술이 동작하지 않는 구형 브라우저에 기술들이 동작 할 수 있게 해주는 package 설치
+
+    1. npm i -D postcss autoprefixer
+    2.
+     package.json 끝나는 부분 바로 위에
+     ,
+    "browserslist": [
+      "> 1%", 
+      "last 2 versions"
+    ]
+    작성
+    전세계의 점유율인 1% 이상 인 모든 브라우저, 그 브라우저의 마지막 2버전 까지 지원해주겠다는 의미
+    3. .postcssrc.js 만들어서 작성
+    4. autoprefixer와 postcss가 충돌이 있으므로 autoprefixer를 다운그레이드 시킨다
+    npm i -D autoprefixer@9
+  -->
+  <!-- 
+    Babel : 구형브라우저에서 구동이 되는 ES5로 컴파일러(변환)해서 적용이 되게 (예전문법으로 변형) 하기 위해 사용
+    1. npm i -D @babel/core @babel/preset-env
+     npm i -D @babel/plugin-transform-runtime
+    2. root경로에 .babelrc.js 생성
+    3. module.exports = {
+      presets: ['@babel/preset-env'],
+      plugins: [
+        ['@babel/plugin-transform-runtime']
+      ]
+    }
+    작성
+    4. package.json 끝나는 부분 바로 위에
+     ,
+    "browserslist": [
+      "> 1%", 
+      "last 2 versions"
+    ]
+
+   -->
+  <h1>Hello Parcel!!</h1>
+  <img src="./images/logo.png" alt="HEROPY" />
+</body>
+</html>

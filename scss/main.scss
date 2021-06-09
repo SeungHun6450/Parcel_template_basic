@@ -1,0 +1,11 @@
+$color--black: #000;
+$color--white: #fff;
+
+body {
+  background-color: $color--black;
+  h1 {
+    color: $color--white;
+    // -weblit과 -ms가 자동으로 생긴다
+    display: flex;
+  }
+}
